@@ -1,5 +1,8 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Routes, Route, useLocation } from 'react-router-dom'
+
+// VITE_ROUTER=hash builds a static-host friendly bundle (no server rewrites needed).
+const Router = import.meta.env.VITE_ROUTER === 'hash' ? HashRouter : BrowserRouter
 import { Header } from './features/layout/Header'
 import { Footer } from './features/layout/Footer'
 import { useHotkeys } from './features/layout/useHotkeys'
@@ -55,12 +58,12 @@ function Shell() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <PrefsProvider>
         <ToastProvider>
           <Shell />
         </ToastProvider>
       </PrefsProvider>
-    </BrowserRouter>
+    </Router>
   )
 }
