@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" data-text-size="normal">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bluechip — clean, ad-free stock research. Every Finviz metric, redesigned." />
+    <title>Bluechip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      // Apply saved theme / text size before first paint to avoid a flash.
+      try {
+        var t = localStorage.getItem('bluechip:theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        var s = localStorage.getItem('bluechip:textSize');
+        if (s) document.documentElement.setAttribute('data-text-size', s.replace(/"/g, ''));
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
